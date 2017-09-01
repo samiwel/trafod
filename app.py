@@ -1,11 +1,13 @@
 from flask import Flask, render_template, abort, request, redirect, flash, url_for
 from flask_pymongo import PyMongo
-from bson.json_util import dumps
 
 from models import Topic
 
 app = Flask(__name__)
 app.secret_key = 'some_secret'
+
+app.config['MONGO_HOST'] = 'mongodb'
+
 app.config['MONGO_DBNAME'] = 'trafod'
 mongo = PyMongo(app)
 
