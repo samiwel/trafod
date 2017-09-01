@@ -1,0 +1,15 @@
+{% extends 'base_layout.html' %}
+{% block page_title %}
+Topics
+{% endblock %}
+{% block content %}
+
+<ul>
+    {% for topic in topics %}
+    <li><a href="{{ url_for('get_topic', topic_id=topic.topic_id) }}">{{ topic.title }}</a></li>
+    {% endfor %}
+</ul>
+
+<a class="btn btn-sm btn-success" href="{{ url_for('create_topic') }}">Add topic</a>
+
+{% endblock %}

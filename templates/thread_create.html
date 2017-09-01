@@ -1,0 +1,23 @@
+{% extends 'base_layout.html' %}
+{% block page_title %}
+Create a thread
+{% endblock %}
+{% block content %}
+
+<form method="post" action="{{ url_for('create_thread') }}">
+
+    <div class="form-group">
+        <label for="title">Thread title</label>
+        <input class="form-control" id="title" name="title" required/>
+    </div>
+    <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea class="form-control" name="comment" id="comment" cols="30" rows="10"
+                  placeholder="Enter the first comment" required maxlength="250"></textarea>
+    </div>
+    <button class="btn btn-sm btn-primary">Save</button>
+</form>
+
+<a href="{{ back_url }}">Back to topic</a>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+{% block page_title %}
+{{ topic.title }}
+{% endblock %}
+{% block content %}
+{% if topic.threads %}
+<ul>
+    {% for thread in topic.threads %}
+    <li>{{ thread.title }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>There are no threads yet.</p>
+{% endif %}
+
+<a href="{{ url_for('create_thread', topic_id=topic.topic_id) }}" class="btn btn-sm btn-primary">Create new thread</a>
+{% endblock %}

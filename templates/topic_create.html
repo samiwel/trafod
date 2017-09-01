@@ -1,0 +1,18 @@
+{% extends 'base_layout.html' %}
+{% block page_title %}
+Create Topic
+{% endblock %}
+{% block content %}
+
+<form method="post" action="{{ url_for('create_topic') }}">
+
+    <div class="form-group">
+    <label>Title</label>
+    <input class="form-control" name="title" />
+    </div>
+
+
+    <button class="btn btn-sm btn-primary">Save</button>
+</form>
+
+{% endblock %}
