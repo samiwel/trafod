@@ -6,7 +6,7 @@ from models import Topic
 app = Flask(__name__)
 app.secret_key = 'some_secret'
 
-app.config['MONGO_HOST'] = 'mongodb'
+# app.config['MONGO_HOST'] = 'mongodb'
 
 app.config['MONGO_DBNAME'] = 'trafod'
 mongo = PyMongo(app)
@@ -44,7 +44,7 @@ def create_thread(topic_id):
         flash('Topic created successfully')
         return redirect('/topics')
 
-    return render_template('thread_create.html', back_url=back_url)
+    return render_template('thread_create.html', back_url=back_url, topic_id=topic_id)
 
 # @app.route("/topic/<int:topic_id>/threads")
 # def get_topic_threads(topic_id):
